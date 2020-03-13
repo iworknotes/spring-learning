@@ -11,7 +11,6 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * @date 03/12/2020
  */
 @EnableFeignClients
-@EnableHystrix
 @EnableEurekaClient
 @SpringBootApplication
 public class UserApplication {

@@ -14,10 +14,14 @@ spring:
   application:
     name: d-user-v1 #此实例注册到eureka服务端的name(后续集群的名称)
 
+#ribbon:
+#  ReadTimeout: 2000
+#  ConnectTimeout: 2000
+#  OkToRetryOnAllOperations: false
+
 feign:
   hystrix:
     enabled: true
-
 
 hystrix:
   threadpool:
@@ -28,11 +32,10 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 5000
+            timeoutInMilliseconds: 7000
       circuitBreaker:
-        sleepWindowInMilliseconds: 20000
+        sleepWindowInMilliseconds: 3000
         requestVolumeThreshold: 2
-
 
 management:
   endpoints:

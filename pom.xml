@@ -35,7 +35,9 @@
         <spring-boot-maven-plugin.version>2.1.6.RELEASE</spring-boot-maven-plugin.version>
 
         <spring-boot-dependencies.version>2.1.6.RELEASE</spring-boot-dependencies.version>
-        <spring-cloud-dependencies.version>Finchley.RELEASE</spring-cloud-dependencies.version>
+        <!--        <spring-cloud-dependencies.version>Finchley.RELEASE</spring-cloud-dependencies.version>-->
+        <spring-cloud-dependencies.version>Greenwich.RELEASE</spring-cloud-dependencies.version>
+
 
         <mysql-connector-java.version>8.0.15</mysql-connector-java.version>
         <mybatis.version>3.4.6</mybatis.version>
@@ -43,6 +45,8 @@
         <mybatis-generator-maven-plugin.version>1.4.0</mybatis-generator-maven-plugin.version>
         <pagehelper-spring-boot-starter.version>1.2.10</pagehelper-spring-boot-starter.version>
         <druid-spring-boot-starter.version>1.1.10</druid-spring-boot-starter.version>
+
+        <feign-httpclient.version>8.17.0</feign-httpclient.version>
 
         <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
         <springfox-swagger-ui.version>2.9.2</springfox-swagger-ui.version>
@@ -58,12 +62,19 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>${spring-cloud-dependencies.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>io.github.openfeign</groupId>
+                <artifactId>feign-httpclient</artifactId>
+                <version>10.7.0</version>
             </dependency>
 
             <dependency>

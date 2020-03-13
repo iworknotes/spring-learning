@@ -12,4 +12,6 @@ public interface PowerRequestURL {
 
     String GET_POWER_ERROR = "/getPowerError";
 
+    String GET_POWER_BY_USER = "/getPowerByUser";
+
 }
