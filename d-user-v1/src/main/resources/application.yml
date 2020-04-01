@@ -22,6 +22,8 @@ spring:
 feign:
   hystrix:
     enabled: true
+  httpclient:
+    enabled: true
 
 hystrix:
   threadpool:

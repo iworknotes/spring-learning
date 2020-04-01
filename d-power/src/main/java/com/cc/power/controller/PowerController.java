@@ -4,6 +4,7 @@ import com.cc.entity.UserEntity;
 import com.cc.power.api.PowerAPI;
 import com.cc.util.R;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;

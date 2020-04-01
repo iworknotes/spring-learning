@@ -8,9 +8,10 @@
         <version>1.0.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
+	
+    <groupId>com.cc</groupId>
     <artifactId>d-common</artifactId>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
-
 
 </project>
