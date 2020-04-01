@@ -1,0 +1,30 @@
+server:
+  port: 5004
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:3000/eureka/ #eureka服务端提供的注册地址 参考服务端配置的这个路径
+  instance:
+    instance-id: d-feign-01 #此实例注册到eureka服务端的唯一的实例ID
+    prefer-ip-address: true #是否显示IP地址
+    leaseRenewalIntervalInSeconds: 10 #Eureka客户需要多长时间发送心跳给eureka服务器,表明它仍然活着,默认为30 秒 (与下面配置的单位都是秒)
+    leaseExpirationDurationInSeconds: 30 #Eureka服务器在接收到实例的最后一次发出的心跳后,需要等待多久才可以将此实例删除,默认为90秒
+spring:
+  application:
+    name: d-feign #此实例注册到eureka服务端的name(后续集群的名称)
+
+
+D-POWER:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule #通过配置Ribbon来决定Feign的负载均衡策略
+
+feign:
+  client:
+    config:
+      default:  #服务名，填写default为所有服务
+        connectTimeout: 100
+        readTimeout: 100
+      D-POWER:  #服务名，power服务
+        connectTimeout: 2000 #如果配置Retryer.Default，调用的服务如果2s没有回应，则进行重试调用。默认配置重试4次
+        readTimeout: 2000
+        retryer: feign.Retryer.Default #feign不配置retryer是不启用重试的,如果开启重试要做好 接口幂等
