@@ -1,0 +1,47 @@
+server:
+  port: 5001
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:3000/eureka/ #eureka服务端提供的注册地址 参考服务端配置的这个路径
+  #      defaultZone: http://eureka3001:3001/eureka/,http://eureka3002:3002/eureka/,http://eureka3003:3003/eureka/ #eureka服务端提供的注册地址 参考服务端配置的这个路径
+  instance:
+    instance-id: d-user-v1 #此实例注册到eureka服务端的唯一的实例ID
+    prefer-ip-address: true #是否显示IP地址
+    leaseRenewalIntervalInSeconds: 10 #Eureka客户需要多长时间发送心跳给eureka服务器,表明它仍然活着,默认为30 秒 (与下面配置的单位都是秒)
+    leaseExpirationDurationInSeconds: 30 #Eureka服务器在接收到实例的最后一次发出的心跳后,需要等待多久才可以将此实例删除,默认为90秒
+spring:
+  application:
+    name: d-user-v1 #此实例注册到eureka服务端的name(后续集群的名称)
+
+#ribbon:
+#  ReadTimeout: 2000
+#  ConnectTimeout: 2000
+#  OkToRetryOnAllOperations: false
+
+feign:
+  hystrix:
+    enabled: true
+  httpclient:
+    enabled: true
+
+hystrix:
+  threadpool:
+    default:
+      coreSize: 5
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 7000
+      circuitBreaker:
+        sleepWindowInMilliseconds: 3000
+        requestVolumeThreshold: 2
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*" # 开启全部,例如：info、health、beans、hystrix.stream等
+      base-path: /scan
