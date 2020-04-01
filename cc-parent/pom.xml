@@ -4,23 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.cc</groupId>
-    <artifactId>spring-learning</artifactId>
+    <artifactId>cc-parent</artifactId>
     <version>1.0.0</version>
-<!--    <modules>-->
-<!--        <module>d-power</module>-->
-<!--        <module>d-ribbon</module>-->
-<!--        <module>d-feign</module>-->
-<!--        <module>d-common</module>-->
-<!--        <module>d-hystrix</module>-->
-<!--        <module>d-power-api</module>-->
-<!--        <module>d-power-api-v2</module>-->
-<!--        <module>d-user-v2</module>-->
-<!--        <module>d-user-v1</module>-->
-<!--        <module>d-jdbc</module>-->
-<!--    </modules>-->
     <packaging>pom</packaging>
-    <name>spring-learning</name>
-    <description>Spring learning</description>
+    <name>cc-parent</name>
+    <description>models parent pom</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
